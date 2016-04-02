@@ -49,7 +49,7 @@ If you specify any options without specifying its required options, The function
 
 ### Schedule
 
-Array [Number] `years`    -> The years for which courses can be looked up
+* Array [Number] `years`    -> The years for which courses can be looked up
 
 #### Static Methods
 
@@ -69,8 +69,8 @@ Returns a Promise for a `Year` object.
 
 ### Year
 
-Number `year`             -> The current Year
-Array [String] `terms`    -> The terms for which courses can be looked up
+* Number `year`             -> The current Year
+* Array [String] `terms`    -> The terms for which courses can be looked up
 
 #### Static Methods
 
@@ -94,9 +94,9 @@ Returns a `Term` object.
 
 ### Term
 
-Number `year`             -> The current Year
-String `term`             -> The current Term
-Array [String] `subjects` -> The subjects for which courses can be looked up
+* Number `year`             -> The current Year
+* String `term`             -> The current Term
+* Array [String] `subjects` -> The subjects for which courses can be looked up
 
 #### Static Methods
 
@@ -123,10 +123,10 @@ Returns a `Subject` object.
 
 ### Subject
 
-Number `year`             -> The current Year
-String `term`             -> The current Term
-String `subject`          -> The current Subject
-Object `subjectData`      -> The data for this subject. [Documentation is WIP]
+* Number `year`             -> The current Year
+* String `term`             -> The current Term
+* String `subject`          -> The current Subject
+* Object `subjectData`      -> The data for this subject. [Documentation is WIP]
 
 #### Static Methods
 
