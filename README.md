@@ -1,4 +1,4 @@
-# UIUC
+# UIUC [![Build Status](https://travis-ci.org/pranaygp/uiuc.svg?branch=master)](https://travis-ci.org/pranaygp/uiuc)
 
 A JS wrapper for U of I's Course Schedule/Catalog API
 
