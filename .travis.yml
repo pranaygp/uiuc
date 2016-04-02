@@ -8,5 +8,6 @@ node_js:
   - "4.0"
   - "iojs"
   - "node"
-  before_script: npm run build
-  script: npm test
+
+before_script: npm run build
+script: npm test
