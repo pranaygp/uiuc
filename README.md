@@ -18,7 +18,7 @@ import or require it
 
 import uiuc from 'uiuc' // ES6 Syntax
 
-var uiuc = require('uiuc')
+var uiuc = require('uiuc').default
 
 ```
 

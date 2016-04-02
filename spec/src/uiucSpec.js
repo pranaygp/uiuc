@@ -1,4 +1,5 @@
 import uiuc from './../'
+// const uiuc = require("./../").default
 
 describe("getSchedule()", () => {
 
