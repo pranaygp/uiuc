@@ -4,7 +4,8 @@
   "description": "An unofficial JS wrapper for the UIUC Course Directory",
   "main": "dist/uiuc.js",
   "scripts": {
-    "test": "gulp build-test && jasmine"
+    "test": "gulp build-test && jasmine",
+    "build": "gulp"
   },
   "keywords": [
     "uiuc",

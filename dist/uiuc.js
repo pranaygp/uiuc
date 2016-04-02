@@ -62,14 +62,25 @@ var Schedule = function () {
   _createClass(Schedule, [{
     key: 'year',
     value: function year(_year) {
-      _year = Number(_year);
-      if (!(_lodash2.default.indexOf(this.years, _year) > -1)) {
-        return new Promise(function (resolve, reject) {
-          reject("Invalid Year");
-        });
-      } else {
-        return Year.fetch({ year: _year });
+      if (!_year) {
+        _year = "DEFAULT";
       }
+
+      try {
+        _year = Number(_year);
+        if (!(_lodash2.default.indexOf(this.years, _year) > -1)) {
+          return new Promise(function (resolve, reject) {
+            reject("Invalid Year");
+          });
+        }
+      } catch (e) {
+        if (_year != "DEFAULT") {
+          return new Promise(function (resolve, reject) {
+            reject("Invalid Year");
+          });
+        }
+      }
+      return Year.fetch({ year: _year });
     }
   }], [{
     key: 'fetch',
@@ -104,9 +115,16 @@ var Year = function () {
   _createClass(Year, [{
     key: 'term',
     value: function term(_term) {
-      _term = _lodash2.default.toLower(_term);
 
-      if (!(_lodash2.default.indexOf(this.terms, _term) > -1)) {
+      try {
+        _term = _lodash2.default.toLower(_term);
+      } catch (e) {
+        return new Promise(function (resolve, reject) {
+          reject("Invalid Term");
+        });
+      }
+
+      if (_term != "DEFAULT" && !(_lodash2.default.indexOf(this.terms, _term) > -1)) {
         return new Promise(function (resolve, reject) {
           reject("Invalid Term");
         });
@@ -188,6 +206,17 @@ var Term = function () {
       var year = _ref3$year === undefined ? "DEFAULT" : _ref3$year;
       var _ref3$term = _ref3.term;
       var term = _ref3$term === undefined ? "DEFAULT" : _ref3$term;
+
+
+      try {
+        year = Number(year);
+      } catch (e) {
+        if (year != "DEFAULT") {
+          return new Promise(function (resolve, reject) {
+            reject("Invalid Year");
+          });
+        }
+      }
 
       return new Promise(function (resolve, reject) {
         var client = new _nodeRestClient.Client();
