@@ -1,6 +1,6 @@
 {
   "name": "uiuc",
-  "version": "1.0.1",
+  "version": "2.0.1",
   "description": "An unofficial JS wrapper for the UIUC Course Directory",
   "main": "dist/uiuc.js",
   "scripts": {

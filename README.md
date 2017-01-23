@@ -117,7 +117,7 @@ Returns a `Subject` object.
 
 **Parameters**
 
-* *subject* - (String) The subject code for a specific schedule.
+* *subject* - (Object) Search parameters for Subject (need to have either `title` or `code`)
 * *active* - (Boolean) - *optional* Return only active courses (currently offered). Set to `false` by default.
 
 
@@ -126,7 +126,18 @@ Returns a `Subject` object.
 * Number `year`             -> The current Year
 * String `term`             -> The current Term
 * String `subject`          -> The current Subject
-* Object `subjectData`      -> The data for this subject. [Documentation is WIP]
+* String `label`            -> Full title of current Subject
+* String `collegeCode`      -> The College Code [No idea what this is]
+* String `departmentCode`   -> Department Code
+* String `unitName`         -> Name of Unit [Department]
+* String `contactName`      -> Department contact name
+* String `contactTitle`     -> Department contact title
+* String `addressLine1`     -> Department contact address (line 1)
+* String `addressLine2`     -> Department contact address (line 2)
+* String `phoneNumber`      -> Department contact phone number
+* String `websiteURL`       -> Department website
+* String `collegeDepartmentDescription`      -> Self Explanatory
+* Object `courses`          -> List of courses offered under this subject
 
 #### Static Methods
 
@@ -139,4 +150,88 @@ Returns a Promise for a `Subject` object.
 * *year* - (Number | String) - *(optional)* The year for a specific schedule. If set to "DEFAULT" or undefined, the latest year is used
 * *term* - (String) - *(optional)* The term for a specific schedule. Should be set to one of "spring", "fall", "winter", "summer" or "DEFAULT". If set to "DEFAULT" or undefined, the latest term is used.
 * *subject* - (String) - The subject code for a specific schedule.
+* *active* - (Boolean) - *(optional)* Return only active courses (currently offered). Set to `false` by default.
+
+#### Methods
+
+`course( course, active )`
+
+Returns a `Course` object.
+
+**Parameters**
+
+* *course* - (Object) Search parameters for Course (need to have either `title` or `number`)
+* *active* - (Boolean) - *optional* Return only active courses (currently offered). Set to `false` by default.
+
+
+### Course
+
+* Number `year`             -> The current Year
+* String `term`             -> The current Term
+* String `subject`          -> The current Subject
+* String `label`            -> Full title of course
+* String `description`      -> Course Description
+* String `creditHourse`     -> Number of Credits (Don't assume this is a number)
+* String `courseSectionInformation`     -> self Explanatory
+* Array<Object> `sections`  -> List of sections for this course
+
+#### Static Methods
+
+`fetch ( options )`
+
+Returns a Promise for a `Course` object.
+
+**Options**
+
+* *year* - (Number | String) - *(optional)* The year for a specific schedule. If set to "DEFAULT" or undefined, the latest year is used
+* *term* - (String) - *(optional)* The term for a specific schedule. Should be set to one of "spring", "fall", "winter", "summer" or "DEFAULT". If set to "DEFAULT" or undefined, the latest term is used.
+* *subject* - (String) - The subject code for a specific schedule.
+* *course* - (String) - The course number.
+* *active* - (Boolean) - *(optional)* Return only active courses (currently offered). Set to `false` by default.
+
+#### Methods
+
+`section( section )`
+
+Returns a `Section` object.
+
+**Parameters**
+
+* *section* - (Object) Search parameters for Section (need to have either `section` or `crn`)
+
+### Section
+
+* Number `year`             -> The current Year
+* String `term`             -> The current Term
+* String `subject`          -> The current Subject
+* String `sectionNumber`    -> The section number
+* String `creditHourse`     -> Number of credits (Don't expect this to be a number)
+* String `statusCode`       -> status code (No idea what this is)
+* String `partOfTerm`       -> Part of which term (usually either one of 1, A, B)
+* String `sectionStatusCode` -> section status code (No idea what this is)
+* String `enrollmentStatus` -> ability to enroll in course
+* String `startDate`        -> start date of course (section)
+* String `endDate`          -> end date of course (section)
+* Array<Object> `meetings`  -> list of meeting objects for course
+  * String `type`             -> type of section (Lecture, Discussion, Lab, etc.)
+  * String `start`            -> start time
+  * String `end`              -> end time
+  * String `daysOfTheWeek`    -> which days the section meets (in the form of'TR' or 'MWF' etc)
+  * String `roomNumber`       -> room number of venue
+  * String `buildingName`     -> building name of venue
+  * Array<String> `instructors` -> list of instructors for course
+
+#### Static Methods
+
+`fetch ( options )`
+
+Returns a Promise for a `Section` object.
+
+**Options**
+
+* *year* - (Number | String) - *(optional)* The year for a specific schedule. If set to "DEFAULT" or undefined, the latest year is used
+* *term* - (String) - *(optional)* The term for a specific schedule. Should be set to one of "spring", "fall", "winter", "summer" or "DEFAULT". If set to "DEFAULT" or undefined, the latest term is used.
+* *subject* - (String) - The subject code for a specific schedule.
+* *course* - (String) - The course number.
+* *crn* - (String) - The crn.
 * *active* - (Boolean) - *(optional)* Return only active courses (currently offered). Set to `false` by default.
