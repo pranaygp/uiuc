@@ -1,6 +1,6 @@
 {
   "name": "uiuc",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An unofficial JS wrapper for the UIUC Course Directory",
   "main": "dist/uiuc.js",
   "scripts": {
@@ -26,5 +26,4 @@
     "node-rest-client": "^1.8.0"
   },
   "repository": "pranaygp/uiuc"
-
 }
