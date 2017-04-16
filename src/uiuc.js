@@ -350,7 +350,7 @@ class Section{
                 term !== 'DEFAULT' ? term : _.toLower(data['ns2:section'].parents[0].term[0]._.split(' ')[0]),
                 year !== 'DEFAULT' ? year : data['ns2:section'].parents[0].calendarYear[0]._,
                 data['ns2:section'].sectionNumber[0].trim(),
-                data['ns2:section'].creditHours[0],
+                (data['ns2:section'].creditHours || [''])[0],         // HACK: for some reason this broke on a CS 374 section (which didn't have credit hours :3)
                 data['ns2:section'].statusCode[0],
                 data['ns2:section'].partOfTerm[0],
                 data['ns2:section'].sectionStatusCode[0],

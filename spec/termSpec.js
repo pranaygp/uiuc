@@ -17,7 +17,7 @@ describe("term", function () {
     _3.default.getSchedule().then(function (schedule) {
       return schedule.year(schedule.years[0]);
     }).then(function (year) {
-      return year.term(year.terms[0]);
+      return year.term(year.terms[3]);
     }).then(function (data) {
       term = data;
       done();
@@ -53,6 +53,7 @@ describe("term", function () {
       }).catch(function (err) {
         fail(err);done();
       });
+      // console.log(term.section(46258))
     });
 
     it("throws an error on invalid subject", function (done) {

@@ -403,7 +403,8 @@ var Section = function () {
             if (!data['ns2:section']) {
               reject(data);
             } else {
-              resolve(new Section(crn, course, subject, term !== 'DEFAULT' ? term : _lodash2.default.toLower(data['ns2:section'].parents[0].term[0]._.split(' ')[0]), year !== 'DEFAULT' ? year : data['ns2:section'].parents[0].calendarYear[0]._, data['ns2:section'].sectionNumber[0].trim(), data['ns2:section'].creditHours[0], data['ns2:section'].statusCode[0], data['ns2:section'].partOfTerm[0], data['ns2:section'].sectionStatusCode[0], data['ns2:section'].enrollmentStatus[0], data['ns2:section'].startDate[0], data['ns2:section'].endDate[0], data['ns2:section'].meetings[0].meeting.map(function (meeting) {
+              resolve(new Section(crn, course, subject, term !== 'DEFAULT' ? term : _lodash2.default.toLower(data['ns2:section'].parents[0].term[0]._.split(' ')[0]), year !== 'DEFAULT' ? year : data['ns2:section'].parents[0].calendarYear[0]._, data['ns2:section'].sectionNumber[0].trim(), (data['ns2:section'].creditHours || [''])[0], // HACK: for some reason this broke on a CS 374 section (which didn't have credit hours :3)
+              data['ns2:section'].statusCode[0], data['ns2:section'].partOfTerm[0], data['ns2:section'].sectionStatusCode[0], data['ns2:section'].enrollmentStatus[0], data['ns2:section'].startDate[0], data['ns2:section'].endDate[0], data['ns2:section'].meetings[0].meeting.map(function (meeting) {
                 return new Meeting(meeting);
               })));
             }

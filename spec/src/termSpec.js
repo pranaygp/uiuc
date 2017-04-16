@@ -7,7 +7,7 @@ describe("term", () => {
   beforeAll((done) => {
     uiuc.getSchedule()
       .then(schedule => schedule.year(schedule.years[0]))
-      .then(year => year.term(year.terms[0]))
+      .then(year => year.term(year.terms[3]))
       .then(data => {
         term = data;
         done();
@@ -43,6 +43,7 @@ describe("term", () => {
           done();
         })
         .catch((err) => {fail(err); done();})
+      // console.log(term.section(46258))
     })
 
     it("throws an error on invalid subject", (done) => {
