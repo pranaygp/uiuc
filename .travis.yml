@@ -10,3 +10,7 @@ node_js:
 
 before_script: npm run build
 script: npm test
+notifications:
+  webhooks:
+    - http://webhook.site/5d942b31-8927-42e3-830a-230f7278c3f9
+    - https://requestb.in/wfljk5wf
