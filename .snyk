@@ -6,3 +6,6 @@ patch:
   'npm:ms:20170412':
     - node-rest-client > debug > ms:
         patched: '2017-05-21T19:00:22.464Z'
+  'npm:debug:20170905':
+    - node-rest-client > debug:
+        patched: '2017-10-01T07:50:06.676Z'
