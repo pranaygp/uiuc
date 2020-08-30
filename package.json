@@ -24,7 +24,7 @@
     "jasmine-core": "^2.4.1"
   },
   "dependencies": {
-    "lodash": "^4.7.0",
+    "lodash": "^4.17.17",
     "node-rest-client": "^1.8.0",
     "snyk": "^1.30.1"
   },
